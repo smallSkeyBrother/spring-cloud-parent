@@ -5,6 +5,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-cloud-start</module>
+        <module>spring-cloud-producer</module>
+        <module>spring-cloud-eureka</module>
+        <module>spring-cloud-consumer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
