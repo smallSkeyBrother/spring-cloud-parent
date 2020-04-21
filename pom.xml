@@ -8,6 +8,7 @@
         <module>spring-cloud-producer</module>
         <module>spring-cloud-eureka</module>
         <module>spring-cloud-consumer</module>
+        <module>spring-cloud-hystrix</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
