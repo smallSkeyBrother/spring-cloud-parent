@@ -1,0 +1,14 @@
+一. Eureka客户端
+
+1.添加服务发现的注解
+  ① EnableEurekaClient Eureka专用；
+  ② EnableDiscoveryClient 所有注册中心通用。
+
+2.服务启动会加载Spring-cloud-eureka-client包下，META-INF目录下Spring.factories文件中配置的类到容器中；
+  ① EurekaClientAutoConfiguration配置类中，会创建CloudEurekaClient对象实例，该类继承自netflix的eureka-client包中的
+  DiscoveryClient类
+  ② 创建DiscoveryClient类实例对象，其构造方法中，会根据配置项，启动三个定时任务，分别定时轮询的请求注册中心接：
+    a. 拉取注册中心上的服务提供者实例列表
+    b. 注册自己到服务注册中心
+    c. 定时向注册中心续约（默认30秒，如果注册中心90秒没收到客户端续约信息，则会将其剔除）
+  ③ 拉取服务信息，注册，服务续约 都是调用辅助注册中心的http接口。
